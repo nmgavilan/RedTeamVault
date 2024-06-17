@@ -1,0 +1,13 @@
+Handy tool for querying a local copy of [[Exploit-DB]]. Using the code provided by Searchsploit requires precursory knowledge of [[Fixing Exploits]]. 
+
+```shell
+searchsploit <search term> # Query the database for a search term. Examples include 'searchsploit panos 10', etc...
+
+searchsploit -x <exploit number> # Examine an exploit with less
+
+searchsploit -m <exploit number> # Mirror the exploit to the working directory.
+
+searchsploit -p <exploit number> # Get exploit info and copy path to clipboard
+```
+
+Does not contain everything, and is not the end all be all, but it is a massive database so it is a safe place to start. Many of these exploits are idiot-proofed to make sure script kiddies do not use them without proper caution and care. 

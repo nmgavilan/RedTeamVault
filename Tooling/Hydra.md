@@ -1,0 +1,12 @@
+Bruteforces network services of all kinds, including http requests, forms, etc. 
+
+>[!danger] Detection Risk
+>Loud, long. Password spraying is much more permissible than password guessing for obvious reasons. Rate-limiting is not on the schedule, so use it wisely. 
+
+```shell
+hydra -l/L <username/userlist> -p/P <password/wordlist> <protocol>://<IP/FQDN>:<port> # Example network service bruteforce
+
+hydra -l <username> -P <wordlist> <IP> http-get-form "<form-name>?username=^USER^&password=^PASS^:S=logout.php" -f # example GET form brute
+```
+
+Install with apt on Kali

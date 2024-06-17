@@ -1,0 +1,33 @@
+Metasploit is an exploitation framework that is essential to any penetration testing toolbox. It packages hundreds of exploits with plug-and-play functionality to give you a smooth experience, providing also the [[MSFVenom]] payload generation tool and the [[Meterpreter]] implant. 
+
+A course on Metasploit usage can be found here: https://www.offsec.com/metasploit-unleashed/
+This course covers Metasploit usage in-depth, and is a great point to start from. 
+
+> [!warning]
+> Please take the time to understand your exploits. Metasploit is a very powerful tool, but it is also one that can isolate you from the process to an unhealthy degree. Always attempt to understand your environment and the exploits that you are running, so you do not accidentally damage your target in unintended ways. An easy way to do this is with the builtin `edit` command. 
+
+Start the interactive framework with 
+```shell
+msfconsole # Start the Metasploit Framework interactive console
+```
+
+Use the following commands to navigate modules
+```shell
+msf6> help # Get a comprehensive listing of commands
+msf6> search <search  term> # search for an exploit with key terms
+msf6> use <name or number> # Select an exploit to interact with
+msf6> back # Unselect the selected exploit
+msf6> sessions # List running Meterpreter or command shell sessions
+msf6> sessions -i <number> # Interact with a session
+msf6> sessions -u <number> # Upgrade a session to a Meterpreter shell
+```
+
+Use the following commands to use exploits
+```shell
+msf6> set <property> <value> # Set options on an exploit module
+msf6> setg <property> <value> # Set an option globally for all modules. ex: RHOSTS
+msf6> options # List main options for exploit and selected payload
+msf6> run # Execute the exploit
+```
+
+TODO: Add database commands and relevance.

@@ -1,0 +1,7 @@
+- Passive
+	- [[Google Dorks]]
+	- [[Sublist3r]]
+	- [[DNSDumpster]]?
+- Active
+	- [[Ffuf]]
+	- [[Gobuster]]

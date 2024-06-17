@@ -1,0 +1,113 @@
+# Hash Modes
+## Cracking Linux Hashes - /etc/shadow file
+
+| ID   | Description               | Type              |
+| ---- | ------------------------- | ----------------- |
+| 500  | md5crypt, MD5(Unix)       | Operating-Systems |
+| 200  | bcrypt, Blowfish(Unix)    | Operating-Systems |
+| 400  | sha256crypt, SHA256(Unix) | Operating-Systems |
+| 1800 | sha512crypt, SHA512(Unix) | Operating-Systems |
+
+## Cracking Windows Hashes
+
+|ID|Description|Type|
+|---|---|---|
+|3000|LM|Operating-Systems|
+|1000|NTLM|Operating-Systems|
+
+## Cracking Common Application Hashes
+|ID|Description|Type|
+|---|---|---|
+|900|MD4|Raw Hash|
+|0|MD5|Raw Hash|
+|5100|Half MD5|Raw Hash|
+|100|SHA1|Raw Hash|
+|10800|SHA-384|Raw Hash|
+|1400|SHA-256|Raw Hash|
+|1700|SHA-512|Raw Hash|
+
+## Cracking Common File Password Protections
+
+|ID|Description|Type|
+|---|---|---|
+|11600|7-Zip|Archives|
+|12500|RAR3-hp|Archives|
+|13000|RAR5|Archives|
+|13200|AxCrypt|Archives|
+|13300|AxCrypt in-memory SHA1|Archives|
+|13600|WinZip|Archives|
+|9700|MS Office <= 2003 $0/$1, MD5 + RC4|Documents|
+|9710|MS Office <= 2003 $0/$1, MD5 + RC4, collider #1|Documents|
+|9720|MS Office <= 2003 $0/$1, MD5 + RC4, collider #2|Documents|
+|9800|MS Office <= 2003 $3/$4, SHA1 + RC4|Documents|
+|9810|MS Office <= 2003 $3, SHA1 + RC4, collider #1|Documents|
+|9820|MS Office <= 2003 $3, SHA1 + RC4, collider #2|Documents|
+|9400|MS Office 2007|Documents|
+|9500|MS Office 2010|Documents|
+|9600|MS Office 2013|Documents|
+|10400|PDF 1.1 - 1.3 (Acrobat 2 - 4)|Documents|
+|10410|PDF 1.1 - 1.3 (Acrobat 2 - 4), collider #1|Documents|
+|10420|PDF 1.1 - 1.3 (Acrobat 2 - 4), collider #2|Documents|
+|10500|PDF 1.4 - 1.6 (Acrobat 5 - 8)|Documents|
+|10600|PDF 1.7 Level 3 (Acrobat 9)|Documents|
+|10700|PDF 1.7 Level 8 (Acrobat 10 - 11)|Documents|
+|16200|Apple Secure Notes|Documents|
+
+## Cracking Commmon Database Hash Formats
+
+|ID|Description|Type|Example Hash|
+|---|---|---|---|
+|12|PostgreSQL|Database Server|a6343a68d964ca596d9752250d54bb8a:postgres|
+|131|MSSQL (2000)|Database Server|0x01002702560500000000000000000000000000000000000000008db43dd9b1972a636ad0c7d4b8c515cb8ce46578|
+|132|MSSQL (2005)|Database Server|0x010018102152f8f28c8499d8ef263c53f8be369d799f931b2fbe|
+|1731|MSSQL (2012, 2014)|Database Server|0x02000102030434ea1b17802fd95ea6316bd61d2c94622ca3812793e8fb1672487b5c904a45a31b2ab4a78890d563d2fcf5663e46fe797d71550494be50cf4915d3f4d55ec375|
+|200|MySQL323|Database Server|7196759210defdc0|
+|300|MySQL4.1/MySQL5|Database Server|fcf7c1b8749cf99d88e5f34271d636178fb5d130|
+|3100|Oracle H: Type (Oracle 7+)|Database Server|7A963A529D2E3229:3682427524|
+|112|Oracle S: Type (Oracle 11+)|Database Server|ac5f1e62d21fd0529428b84d42e8955b04966703:38445748184477378130|
+|12300|Oracle T: Type (Oracle 12+)|Database Server|78281A9C0CF626BD05EFC4F41B515B61D6C4D95A250CD4A605CA0EF97168D670EBCB5673B6F5A2FB9CC4E0C0101E659C0C4E3B9B3BEDA846CD15508E88685A2334141655046766111066420254008225|
+|8000|Sybase ASE|Database Server|0xc00778168388631428230545ed2c976790af96768afa0806fe6c0da3b28f3e132137eac56f9bad027ea2|
+
+# Flags
+
+```bash
+-m # Hash type
+-a # Attack mode
+-r # Rules file
+-V # Version
+--status # Keep screen updated
+-b # Benchmark
+--runtime # Abort after X seconds
+--session [text] # Set session name
+--restore # Restore/Resume session
+-o filename # Output to filename
+--username # Ignore username field in a hash
+--potfile-disable # Ignore potfile and do not write
+--potfile-path # Set a potfile path
+-d # Specify an OpenCL Device
+-D # Specify an OpenCL Device Type
+-l # List OpenCL Devices & Types
+-O # Optimized Kernel, Passwords <32 chars
+-i # Increment (bruteforce)
+--increment-min # Start increment at X chars
+--increment-max # Stop increment at X chars
+```
+
+# Example Usage
+```bash
+# Crack MD5 hashes using dictionnary and rules
+hashcat -a 0 -m 0 example0.hash example.dict -r rules/best64.rules
+
+# Crack MD5 using combinator function with 2 dictionnaries
+hashcat -a 1 -m 0 example0.hash example.dict example.dict
+
+# Cracking NTLM hashes
+hashcat64 -m 1000 -a 0 -w 4 --force --opencl-device-types 1,2 -O d:\hashsample.hash "d:\WORDLISTS\realuniq.lst" -r OneRuleToRuleThemAll.rule
+
+# Cracking hashes from kerberoasting
+hashcat64 -m 13100 -a 0 -w 4 --force --opencl-device-types 1,2 -O d:\krb5tgs.hash d:\WORDLISTS\realhuman_phill.txt -r OneRuleToRuleThemAll.rule
+```
+
+Cheatsheet with more info: https://cheatsheet.haax.fr/passcracking-hashfiles/hashcat_cheatsheet/
+
+Install with apt on Kali

@@ -1,0 +1,16 @@
+- Enumerate robots.txt for disallowed entries. 
+- Favicon present? 
+	- Hashes of all known framework favicons: https://wiki.owasp.org/index.php/OWASP_favicon_database
+- Sitemap.xml present?
+- Framework and Version if present
+- [[Google Dorks]]
+- [[Wappalyzer]]
+- [[Wayback Machine]]
+- Code present on Github?
+	- Issues, updates, version informtion, etc...
+- S3 Buckets
+	- File hosting service
+	- Name decided by owner (follows standard format: \*.s3.amazonaws.com)
+		- Page source or references
+		- [[Gobuster]]
+		- [[Ffuf]]
