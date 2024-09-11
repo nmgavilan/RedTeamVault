@@ -47,6 +47,7 @@ GUID - Globally Unique ID
 HTTP - HyperText Tranfer Protocol
 HTTPS - HTTP Secure
 
+IAT - Import Address Table
 ICACLS - Integrity Control ACLs
 ICMP - Internet Control Message Protocol
 ID - IDentifier

@@ -1,7 +1,7 @@
 # What is AD?
 AD is an identity/security policy management framework for managing large fleets of Windows computers. Windows comes with support for it out of the box. 
 
-# Domain Reconnaisance
+# Domain Reconnaissance
 ## Passive
 - [[Responder]]
 	- Use analysis mode
@@ -232,4 +232,4 @@ We can use GetUserSPNs from Impacket to get a TGT to crack with hashcat's mode 1
 
 # Domain Trusts
 - [[BloodHound]]
-- 
+- [[Impacket]]

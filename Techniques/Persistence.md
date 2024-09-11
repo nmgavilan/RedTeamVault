@@ -3,7 +3,7 @@ We should accomplish persistence several ways if possible, while sometimes leavi
 
 The C2 implant of choice for CU at the time of writing is [[Sliver C2]]. You can find a whole host of other options in the C2Matrix here: https://docs.google.com/spreadsheets/d/1b4mUxa6cDQuTV2BPC6aA-GR4zGZi0ooPYtBe4IgPsSc/edit#gid=0. This is a publicly available resource that compares C2 infrastructures against each other. If evasion becomes an absolute necessity in the future, or Sliver's feature count becomes insufficient, the author recommends rolling a custom [[Mythic]] agent, or building our own custom C2 infrastructure using existing techniques.
 
-[[MSFVenom]] also contains functionality for binding malware to liegitimate executables. However, this must be done in conjunction with [[Evasion]] as all MSFVenom payloads and TTPs are well signatured. 
+[[MSFVenom]] also contains functionality for binding malware to legitimate executables. However, this must be done in conjunction with [[Evasion]] as all MSFVenom payloads and TTPs are well signatured. 
 ### Persistence via LOL
 - Linux
 	- Cron jobs
