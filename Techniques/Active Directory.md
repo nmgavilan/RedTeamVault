@@ -85,6 +85,7 @@ Password Spraying can get us one AD User and password pair, which can give us al
 If you have control over where LDAP requests are being sent, perhaps on a networked and unsecured printer, you can configure a rogue LDAP server and sniff the cleartext credentials with Wireshark.
 
 ```shell
+# Start a rogue LDAP server on Kali
 apt install slapd ldap-utils
 systemctl start slapd
 dpkg-reconfigure -p low slapd

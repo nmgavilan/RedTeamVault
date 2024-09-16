@@ -42,7 +42,7 @@
 	- Maldocs
 	- [[Phishing]]
 - Web Applications
-	- [[Cyber Team/CPTC/Techniques/Web Applications/Start|Web Application Exploitation]]
+	- [[Cyber Team/RedTeamVault/Techniques/Web Applications/Start|Web Application Exploitation]]
 ### Privilege Escalation
 - [[Windows Privilege Escalation]]
 - [[Linux Privilege Escalation]]
@@ -55,6 +55,7 @@ Utilize available techniques to stay hidden on the endpoint and penetrate deeper
 - [[Pivoting and Lateral Movement]]
 	- [[Wireless Operations]]
 - [[File Transfers and Exfiltration]]
+- [[Active Directory]]
 
 ### Reporting
 - Use existing templates. If they are not available in the CPTC OneDrive then you should emulate a popular format like OffSec's. Plenty of OSCP report template generators out there. 

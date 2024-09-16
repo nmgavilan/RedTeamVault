@@ -2,6 +2,8 @@
 
 Our actions should be able to be validated by logs from our local penetration testing machines. Additionally, we should be documenting our actions on compromised hosts throuroughly and understanding our exploits before we run them. The trust placed in a penetration tester to not destroy the domain can be shaky, and we need to do our best to maintain it. 
 
+This is an easy solution for bash shell logging and timestamps for attacks run for deconfliction and plausible deniability in the event of a mishap: https://unix.stackexchange.com/questions/25639/how-to-automatically-record-all-your-terminal-sessions-with-script-utility
+
 # Scope
 
 Our actions should be kept within the scope at all times. At no point should malicious traffic be pointed outside of scope. Clarify with your customer if that includes scans, only exploitations, lateral movements, etc. Know your scope well. Likely, out-of-scope targets should not be touched at all, and can be excluded from all hosts by whatever means necessary. Learn CIDR and use it if you must. 
