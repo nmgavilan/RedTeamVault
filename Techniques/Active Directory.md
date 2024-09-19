@@ -218,7 +218,6 @@ We can use GetUserSPNs from Impacket to get a TGT to crack with hashcat's mode 1
 # Miscellaneous Misconfigurations
 - Exchange Related Group Membership
 	- https://github.com/gdedrouas/Exchange-AD-Privesc
-	- 
 - PrivExchange
 - Printer Bug
 - MS14-068
