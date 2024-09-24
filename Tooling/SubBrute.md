@@ -1,3 +1,4 @@
+
 > [!danger] Detection Risk
 > This tool bruteforces subdomains across only the resolvers that you provide. Gigabytes of DNS traffic is not subtle. 
 
