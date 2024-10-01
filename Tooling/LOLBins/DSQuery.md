@@ -38,11 +38,5 @@ The above example sets the first criteria that the object must be a user and com
 
 This would search for any user object that does `NOT` have the Password Can't Change attribute set. 
 
-TODO: Learn how to use this effectively.
-
 Credit: https://academy.hackthebox.com/module/143/section/1360
-
-# Kerberoasting
-- [[Impacket]]
-- [[Rubeus]]
 

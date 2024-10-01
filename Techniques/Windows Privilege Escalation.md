@@ -4,6 +4,7 @@
 [[PEASS|WinPEAS]]
 [[PowerUp.ps1]]
 [[PrivescCheck]]
+[[Seatbelt]]
 
 This is a simple and incomplete checklist for escalating Windows access
 - Check for Unattended Install Artifacts

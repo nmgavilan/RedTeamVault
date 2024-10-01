@@ -71,7 +71,7 @@ IDS/IPS evasion is covered in this list of flags. For example, use source port 5
 ```shell
 nmap -sn -n -vv -oN <scan outfile> <subnet> # Subnet scan
 
-nmap -T4 -p- -vv -oN <scan outfile> <target> # Full port scan (slow, even with T4)
+nmap -T4 -p- -vv -oN <scan outfile> --disable-arp-ping -Pn -n <target> # Full port scan (slow, even with T4)
 
 nmap -sC -sV -p <port1,port2> -vv -oN <scan outfile> <target> # Default scripts scan
 

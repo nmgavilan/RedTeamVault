@@ -53,7 +53,7 @@ int main()
 - Process Hollowing
 - Thread Injection
 - DLL Injection
-TODO: Add THM reference C++ code for these
+
 
 # Staged Payloads
 We can generate staged payloads with [[MSFVenom]]. 

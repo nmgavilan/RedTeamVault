@@ -79,6 +79,7 @@ MAC - Media Access Control
 ME - Management Engine
 MITM - Man In The Middle
 MSF - MetaSploit Framework
+M$ - Microsoft
 
 NAC - Network Access Control
 NAT - Network Address Translation
@@ -101,6 +102,7 @@ PGP - Pretty Good Privacy
 PID - Process ID
 PLC - Programmable Logic Controller
 POP3 - Post Office Protocol 3
+PS - PowerShell
 PSK - Pre-Shared Key
 PTH - Pass The Hash
 PTT - Pass The Ticket
