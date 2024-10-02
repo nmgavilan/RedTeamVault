@@ -19,7 +19,6 @@ systeminfo | findstr Domain # Get domain joined status and name
 Get-ADUser -Filter * # Get all AD users
 Get-ADUser -Filter * -SearchBase "CN=Users,DC=<name of domain>,DC=COM" # Get more info
 ```
-
 # LLMNR/NBT-NS Poisoning
 
 LLMNR poisoning works similarly to ARP poisoning. LLMNR is a protocol similar to DNS used inside AD environments. 
@@ -107,6 +106,13 @@ service slapd restart
 tcpdump -SX -i <interface> tcp port 389
 ```
 
+# Credential Injection
+## Runas
+```powershell
+runas.exe /netonly /user:<domain>\<username> cmd.exe
+```
+
+With credential access and a Windows machine you can connect to the domain and use the Microsoft Management Console to enumerate machines and users in the environment. 
 # Enumerating Security Controls
 
 This Powershell will give lots of valuable information about the domain and your privileges within it. 
@@ -145,6 +151,8 @@ Get-ADGroupMember -Identity <groupname> # Get group members
 
 # LOL Enumeration Solutions
 - [[DSQuery]]
+
+If you can attach your own Windows VM to the domain, you can use these techniques to enumerate from it with [[Runas]] to inject valid AD credentials. 
 
 | **Command**                                             | **Result**                                                                                 |
 | ------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
@@ -221,6 +229,7 @@ We can use GetUserSPNs from Impacket to get a TGT to crack with hashcat's mode 1
 - PrivExchange
 - Printer Bug
 - MS14-068
+- IPv6 Bug (CVE-2024-38063)
 - Sniffing LDAP Credentials
 - Enumerating DNS Records
 - PASSWD_NOTREQD
