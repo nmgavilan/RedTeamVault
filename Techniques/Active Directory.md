@@ -72,6 +72,7 @@ net accounts
 - [[RPCclient]]
 - [[Enum4Linux]]
 - [[Kerbrute]]
+- LOL Solutions (like the AD module)
 
 # Password Spraying
 - [[Kerbrute]]
@@ -214,6 +215,49 @@ If you can attach your own Windows VM to the domain, you can use these technique
 - [[PowerView]]
 
 We can use GetUserSPNs from Impacket to get a TGT to crack with hashcat's mode 13100. Rubeus can be used for the same purpose from Windows. Both can be cracked with Hashcat -m 13100. Kerberoasting can also be performed across different domain with cross-domain trusts. This is especially useful for gaining access across an enterprise or gathering passwords that are not vulnerable in the current domain. 
+
+# Exploiting Dangerous Permissions
+Some examples of dangerous permissions include:
+- ForceChangePassword
+	- User can forcibly change another users' password
+- AddMembers
+	- Users with this permission can add users, groups, and computers to another group
+- GenericAll
+	- Complete control over an object
+- GenericWrite
+	- Update any non-protected parameters of a target object
+- WriteOwner
+	- Update owner of a target object
+- WriteDACL
+	- Write new ACEs to the target object's DACL
+- AllExtendedRights
+	- Permission to perform any action associated with extended AD rights (including for changing password etc.)
+[[BloodHound]]
+[[PowerView]]
+Active Directory Module
+
+```powershell
+# Change an account password
+$Password = ConvertTo-SecureString "<new pass>" -AsPlainText -Force
+Set-ADAccountPassword -Identity "<AD user username>" -Reset -NewPassword $Password
+
+# Add a user to a group
+Add-ADGroupMember "IT Support" -Members "<AD user username>" 
+```
+
+# Exploiting Constrained Delegation
+```powershell
+Get-NetUser -TrustedToAuth # Powerview module to get service accounts trusted to authenticate users to services. (Accounts that can request a TGT)
+# Use mimikatz or rubeus to get credentials for this user
+
+# Begin a remote powershell session on a target machine (tickets should be in memory for a target user delegating WSMAN authority)
+New-PSSession -ComputerName <remote server name>
+Enter-PSSession -ComputerName <remote server name>
+```
+[[Mimikatz]]
+[[PowerView]]
+[[Kekeo]]
+[[BloodHound]]
 
 # Enumerating ACLs
 
