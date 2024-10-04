@@ -232,9 +232,9 @@ Some examples of dangerous permissions include:
 	- Write new ACEs to the target object's DACL
 - AllExtendedRights
 	- Permission to perform any action associated with extended AD rights (including for changing password etc.)
-[[BloodHound]]
-[[PowerView]]
-Active Directory Module
+- [[BloodHound]]
+- [[PowerView]]
+- Active Directory Module
 
 ```powershell
 # Change an account password
@@ -254,10 +254,10 @@ Get-NetUser -TrustedToAuth # Powerview module to get service accounts trusted to
 New-PSSession -ComputerName <remote server name>
 Enter-PSSession -ComputerName <remote server name>
 ```
-[[Mimikatz]]
-[[PowerView]]
-[[Kekeo]]
-[[BloodHound]]
+- [[Mimikatz]]
+- [[PowerView]]
+- [[Kekeo]]
+- [[BloodHound]]
 
 # Enumerating ACLs
 
