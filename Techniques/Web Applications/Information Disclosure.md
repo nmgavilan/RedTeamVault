@@ -12,5 +12,5 @@
 	- File hosting service
 	- Name decided by owner (follows standard format: \*.s3.amazonaws.com)
 		- Page source or references
-		- [[Gobuster]]
+		- [[GoBuster]]
 		- [[Ffuf]]

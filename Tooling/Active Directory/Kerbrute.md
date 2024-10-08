@@ -1,4 +1,4 @@
-Kerbrute will perform guessing operations in an AD environment against a provided DC.
+Kerbrute will perform guessing operations in an AD environment against a provided DC (Domain Controller).
 
 ```shell
 kerbrute userenum -d <DOMAIN> --dc <DC_IP> <wordlist> -o <output of valid users>
