@@ -1,4 +1,4 @@
-Use for NSE scripting engine, and maybe network enumeration. [[Rustscan]] is better for quickly enumerating open ports on a single device. 
+Use for NSE scripting engine, and maybe network enumeration. ~~[[Rustscan]] is better for quickly enumerating open ports on a single device.~~ 
 
 Nmap's full online manual can be found here - https://nmap.org/book/man.html
 

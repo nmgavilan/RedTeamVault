@@ -4,4 +4,4 @@
 	- [[DNSDumpster]]?
 - Active
 	- [[Ffuf]]
-	- [[Gobuster]]
+	- [[GoBuster]]
