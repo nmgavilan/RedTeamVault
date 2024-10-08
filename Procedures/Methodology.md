@@ -1,4 +1,4 @@
-# 1. Reconnaisssance
+# 1. Reconnaissance
 Conduct reconnaissance of the
 - Domain
 - Machines
