@@ -259,6 +259,19 @@ Enter-PSSession -ComputerName <remote server name>
 - [[Kekeo]]
 - [[BloodHound]]
 
+# Exploiting Certificate Misconfigurations
+Four attributes are required for a certificate misconfiguration to lead to privilege escalation:
+- Client Authentication
+- CT_FLAG_ENROLEE_SUPPLIES_SUBJECT
+- CTPRIVATEKEY_FLAG_EXPORTABLE_KEY
+- Certificate Permissions
+
+We can view all certificate templates using the following windows utility.
+
+```powershell
+certutil -Template -v > templates.txt
+```
+
 # Enumerating ACLs
 
 - [[PowerView]]
@@ -286,3 +299,7 @@ Enter-PSSession -ComputerName <remote server name>
 # Domain Trusts
 - [[BloodHound]]
 - [[Impacket]]
+- [[Rubeus]]
+- [[Mimikatz]]
+
+If a domain is a child of another domain or forest, you can use default directional trusts to forge a golden ticket. Since the Administrator of the DC of the child domain by default has administrative privileges over the parent domain, we can compromise the entire enterprise with DA on the child domain. 

@@ -26,3 +26,20 @@ The C2 implant of choice for CU at the time of writing is [[Sliver C2]]. You can
 		- HKEY_CLASSES_ROOT???
 	- Malicious Services
 		- Replace the binPath property of an existing Windows service with your implant to avoid creating a new service. Simple commands can also be used as binPath, meaning `net user redteam password /add` is permissible. If you plan to use an implant as a service make sure to compile as `exe-service` with [[MSFVenom]].
+
+## Domain Persistence
+### Credentials
+You can acquire hashes of users using [[Mimikatz]]'s DCSync functionality for every user. This will grant access to the krbtgt account for golden tickets, etc. 
+
+### Tickets
+Golden and Silver Tickets are incredibly useful, and will grant persistence as well. The are generated most easily with [[Rubeus]] and [[Mimikatz]]. 
+
+### Certificates
+
+> [!error] Danger
+> If you are generating a CA to have persistence, you are making blue team rebuild the domain to get you out. Only do this in nation-state sims and competitions where the domain does NOT have to be reused. In a penetration test, this is so far overkill you will not be invited back. 
+
+[[Mimikatz]]
+
+### SID History
+
