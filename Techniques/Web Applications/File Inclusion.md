@@ -3,7 +3,8 @@ Local and Remote File Inclusion vulnerabilities affect web servers with unsaniti
 Tools:
 - [[Burp Suite]]
 # LFI
-To test, use the `..` operator to maneuver through the filesystem and select the information you are looking for. Ex: `?site=default&lang=../../../../../../../etc/passwd`.
+To test, use the `..` operator to maneuver through the filesystem and select the information you are looking for. Ex: `?site=default&lang=../../../../../../../etc/passwd`. This example is for use in a URL, like in `www.example.com`. To try LFI, add the string above to the URL, like so:
+`www.example.com?site=default&lang=../../../../../../etc/passwd`. ==Please DON'T try this on any actual website, including example.com, for obvious legal reasons.==
 
 Methods exist of protecting against this attack that are also able to be bypassed. These include:
 - Appending a suffix to the string provided; `/etc/passwd` becomes `/etc/passwd.php`
@@ -22,3 +23,5 @@ RFI is even more problematic, because it can lead to immediate RCE. If a web ser
 
 *Even if a webshell cannot be uploaded and called into* we may still upload a 
 PHP reverse shell and gain command execution on the web server.
+
+For more information on File Inclusion vulnerabilities, see the TryHackMe Junior Pentester Path. In its' Intro to Web Hacking module, they have a room on File Inclusion vulnerabilities. 
