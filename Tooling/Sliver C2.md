@@ -10,7 +10,27 @@ sliver-server # start the server
 The server functions as a fully featured point of interaction, and it is not required to use the client at all if no multiplayer is going to be used. However, if multiple operators will need to interact with compromised hosts, multiplayer mode will need to be enabled, and configuration files will need to be generated. 
 
 # Multiplayer
-TODO: Flesh out multiplayer enable and configuration generation
+
+```bash
+# on server (if systemd mode)
+new-operator --name <operator name> --lhost <server IP> # generate config file for new operator
+multiplayer # enable multiplayer mode. Default RPC port is 31337
+
+# on server (if daemon mode)
+./sliver-server operator --name <operator name> --lhost <server IP> --save <config name>.cfg # generate config file for new operator
+```
+
+Each operator must have the sliver-client binary to connect to the sliver server using a generated configuration file.
+
+```bash
+# on client
+./sliver-client import ./<config name>.cfg
+./sliver-client
+```
+
+
+
+
 
 # Implant Generation
 All of the implants generation is taken care of by the `generate` command. Sliver supports HTTP, DNS, WireGuard, TCP, and mTLS callbacks for both sessions and beacons. While these can be used for evasion, mTLS is a safer bet for avoiding NIDS because of its builtin and thorough encryption both directions. 
